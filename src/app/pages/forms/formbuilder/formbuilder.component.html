@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+          <div
+            class="col-md-1"
+            title="Create New Survey"
+            (click)="addnewform()"
+          >
+            <i
+              class="fa fa-plus-square create-survey-icon"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div class="col-md-7 create-survey-label">
+            {{ newSurveyLabel }}
+          </div>
+        <div class="col-md-4">
+          <button
+            style="float: right;"
+            (click)="ResetAllGridFilters()"
+            nbButton
+            outline
+            status="warning"
+          >
+            Reset Grid Filter
+          </button>
+        </div>
+    </div>
+  </nb-card-body>
+</nb-card>
