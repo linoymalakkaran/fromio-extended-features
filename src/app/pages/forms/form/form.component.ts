@@ -1,6 +1,6 @@
 import { Component, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormioUtils, FormBuilderComponent } from 'angular-formio';
+import { FormioUtils, FormBuilderComponent } from 'angular-formio-adports';
 
 import { NbWindowService } from '@nebular/theme';
 import { OdataFormService } from '../../../@core/services/odata_services/odata.service.form';
@@ -98,6 +98,7 @@ export class ServiceFormComponent implements OnInit {
 
   //for display mode
   setFormDisplay(event) {
+    debugger;
     this.formBuilder.setDisplay(event);
   }
 

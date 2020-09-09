@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { UserData } from './data/users';
 import { UserMockService } from './mock/users.mock.service';
 import { RestDataModule } from './services/rest_services/rest-data.module';
-import { ConfirmModalComponent } from './services/common_services/confirm.modal.service';
 import { MapperService } from './services/common_services/mapper.service';
 import { APP_BASE_HREF } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OdataSchemaService } from './services/odata_services/odata.service.schema';
 
 
@@ -32,10 +30,8 @@ export const NB_CORE_PROVIDERS = [
   exports: [
   ],
   declarations: [
-    ConfirmModalComponent
   ],
   entryComponents: [
-    ConfirmModalComponent
   ],
   schemas: [
   ],

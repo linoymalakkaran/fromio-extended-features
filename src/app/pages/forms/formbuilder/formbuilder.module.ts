@@ -1,6 +1,5 @@
 import {  NgModule } from '@angular/core';
-import { AgGridModule } from 'ag-grid-angular';
-import { FormioModule } from 'angular-formio';
+import { FormioModule } from 'angular-formio-adports';
 import { FormsModule } from '@angular/forms';
 
 import {

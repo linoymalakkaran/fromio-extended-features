@@ -2,10 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { map, takeUntil } from 'rxjs/operators';
-import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { environment } from '../../../../environments/environment';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'ngx-header',
@@ -40,7 +39,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   currentTheme = 'default';
 
   userMenu = [{ title: 'Log out' }];
-  private storeSub: Subscription;
 
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
@@ -97,9 +95,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.storeSub) {
-      this.storeSub.unsubscribe();
-    }
     this.destroy$.next();
     this.destroy$.complete();
   }

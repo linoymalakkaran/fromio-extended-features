@@ -27,7 +27,7 @@ import '@angular/localize/init';
 import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /** IE10 and IE11 requires the following to support `@angular/animation`. */
-import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+//import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 
 /** Evergreen browsers require these. **/
