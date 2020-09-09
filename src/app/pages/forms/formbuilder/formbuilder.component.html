@@ -1,30 +1,75 @@
 <nb-card>
   <nb-card-body>
     <div class="row">
-          <div
-            class="col-md-1"
-            title="Create New Survey"
-            (click)="addnewform()"
-          >
-            <i
-              class="fa fa-plus-square create-survey-icon"
-              aria-hidden="true"
-            ></i>
-          </div>
-          <div class="col-md-7 create-survey-label">
-            {{ newSurveyLabel }}
-          </div>
-        <div class="col-md-4">
-          <button
-            style="float: right;"
-            (click)="ResetAllGridFilters()"
-            nbButton
-            outline
-            status="warning"
-          >
-            Reset Grid Filter
-          </button>
-        </div>
+      <div class="col-md-1" title="Create New Survey" (click)="addnewform()">
+        <i class="fa fa-plus-square create-survey-icon" aria-hidden="true"></i>
+      </div>
+      <div class="col-md-7 create-survey-label">
+        Create New Survey
+      </div>
     </div>
   </nb-card-body>
 </nb-card>
+
+<div class="row">
+  <div class="col-md-6" *ngFor="let form of forms">
+    <nb-card size="tiny">
+      <nb-card-header>
+        <h3>{{ form.Name }}</h3>
+      </nb-card-header>
+      <nb-card-body>
+        <div>{{ form.Description }}</div>
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="row" *ngIf="form?.Id">
+          <div class="col-md-3">
+            <button
+              nbButton
+              (click)="openDetails(form)"
+              outline
+              status="primary"
+            >
+              View
+            </button>
+          </div>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+
+<ng-template #content let-modal style="width: 90%;">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Submission Details</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" id="formioBody">
+    <formio
+      [form]="surveyTemplate"
+      [submission]="surveyData"
+      [hideComponents]="['submit']"
+      [readOnly]="true"
+    ></formio>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+      Close
+    </button>
+  </div>
+</ng-template>
+
+<div style="visibility: hidden;"> 
+  <form-builder
+  (change)="onChange($event)"
+  #formbuilder
+  [form]="form.Schema"
+>
+</form-builder>
+</div>

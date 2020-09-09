@@ -10,6 +10,7 @@ export interface FormModel extends BaseModel {
   EndDate: Date,
   Schema: any,
   ValidationSchema?: ValidationSchema,
+  BreadCrumbTemplate: object
 }
 
 export interface FormListModel {

@@ -1,110 +1,40 @@
-import { Injectable, OnDestroy, OnInit } from "@angular/core";
-import { o, OHandler, OdataQuery } from 'odata';
-import { environment } from '../../../../environments/environment';
-import { Subscription } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class OdataService implements OnDestroy {
+import { Injectable } from '@angular/core';
+import { FormApp, ServiceFormData } from '../../data/formapp';
 
-  rootOdataUri: string = environment.rootOdataUrl;
-  odataRoute: string = "odata";
-  private storeSub: Subscription;
-  private token: string;
-
-  constructor(
-  ) {
-   
+@Injectable()
+export class OdataFormService extends ServiceFormData {
+  forms: FormApp[]
+  constructor() {
+    super();
   }
 
-  public async get(resource: string, query: OdataQuery): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return await _oHandler.get(`${this.odataRoute}/${resource}`).query(query);
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async getRest(resource: string, query: OdataQuery): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return await _oHandler.get(resource).query(query);
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async post(resource: string, body: any): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return await _oHandler.post(`${this.odataRoute}/${resource}`, body).query();
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async postRest(resource: string, body: any): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return await _oHandler.post(resource, body).query();
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async put(resource: string, body: any): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return _oHandler.put(`${this.odataRoute}/${resource}`, body).query();
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async putRest(resource: string, body: any): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return _oHandler.put(resource, body).query();
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  public async delete(resource: string, id: string): Promise<any> {
-    try {
-      let _oHandler = this.setAuthToken();
-      return await _oHandler.delete(`${this.odataRoute}/${resource}('${id}')`).query();
-    } catch (error) {
-      console.log(`Error in odataServcie: ${error}`);
-      return null;
-    } finally {
-    }
-  }
-
-  private setAuthToken() {
-    let _oHandler = o(this.rootOdataUri, {
-      headers: new Headers({
-        "Authorization": `bearer ${this.token}`,
-      })
+  async addNewForm(form: FormApp): Promise<FormApp> {
+    return new Promise((resolve, reject) => {
+      this.forms.push(form);
+      resolve(form);
     });
-    return _oHandler;
+  }
+  async updateForm(form: FormApp): Promise<FormApp> {
+    return new Promise((resolve, reject) => {
+      var foundIndex = this.forms.findIndex(x => x._id == form._id);
+      this.forms[foundIndex] = form;
+      resolve(form);
+    });
   }
 
-  ngOnDestroy() {
-    if (this.storeSub) {
-      this.storeSub.unsubscribe();
+  async getForms(fields?: any, query?: any): Promise<FormApp[]> {
+    if (this.forms == undefined) {
+      return this.forms;
     }
+    return this.forms;
+  }
+  async getFormById(id: any): Promise<FormApp> {
+    return new Promise((resolve, reject) => {
+      let form = this.forms.findIndex(x => x._id == id) as FormApp;
+      return resolve(form);
+    });
   }
 }
+
+

@@ -1,5 +1,5 @@
 import {  NgModule } from '@angular/core';
-import { FormioModule } from 'angular-formio-adports';
+import { FormioModule } from 'angular-formio-adports/angular-formio';
 import { FormsModule } from '@angular/forms';
 
 import {
@@ -16,7 +16,7 @@ import { SurveyAlertModule } from '../../alert.module';
 import { ServiceFormComponent } from '../form/form.component';
 import { ServiceFormPreviewComponent } from '../formpreview/form.preview.component';
 import { ServiceFormBuilderComponent } from '../formbuilder/formbuilder.component';
-import { OdataService } from '../../../@core/services/odata_services/odata.service';
+import { OdataFormService } from '../../../@core/services/odata_services/odata.service.form';
 
 @NgModule({
   schemas: [
@@ -42,7 +42,8 @@ import { OdataService } from '../../../@core/services/odata_services/odata.servi
   exports:[
   ],
   providers: [
-    OdataService,
+    OdataFormService,
+    OdataFormService
   ]
 })
 export class ServiceFormBuilderModule { }
