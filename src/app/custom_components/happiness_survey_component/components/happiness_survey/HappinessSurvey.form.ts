@@ -1,4 +1,4 @@
-import nestedComponentForm from 'formio-adports/formiojs/components/_classes/nested/NestedComponent.form';
+import nestedComponentForm from 'formio-custom/formiojs/components/_classes/nested/NestedComponent.form';
 
 import HppinessSurveyEditDisplay from './editForm/HappinessSurvey.edit.display';
 import HappinessFieldEditValidation from './editForm/HappinessSurvey.edit.validation';

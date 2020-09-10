@@ -1,7 +1,7 @@
 import { Component, TemplateRef, ViewChild, } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilderComponent } from 'angular-formio-adports/angular-formio';
+import { FormBuilderComponent } from 'angular-formio-custom/angular-formio';
 import { FormModel } from '../../../@core/models/form.model';
 import { OdataFormService } from '../../../@core/services/odata_services/odata.service.form';
 import { Check } from '../../../@core/utils/check.utility';

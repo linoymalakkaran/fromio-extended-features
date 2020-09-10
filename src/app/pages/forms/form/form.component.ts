@@ -1,6 +1,6 @@
 import { Component, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormioUtils, FormBuilderComponent } from 'angular-formio-adports/angular-formio';
+import { FormioUtils, FormBuilderComponent } from 'angular-formio-custom/angular-formio';
 
 import { NbWindowService } from '@nebular/theme';
 import { OdataFormService } from '../../../@core/services/odata_services/odata.service.form';

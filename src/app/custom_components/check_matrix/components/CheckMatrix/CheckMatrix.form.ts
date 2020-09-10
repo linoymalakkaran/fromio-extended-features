@@ -1,4 +1,4 @@
-import nestedComponentForm from 'formio-adports/formiojs/components/_classes/nested/NestedComponent.form';
+import nestedComponentForm from 'formio-custom/formiojs/components/_classes/nested/NestedComponent.form';
 
 import CheckMatrixEditDisplay from './editForm/CheckMatrix.edit.display';
 export default function(...extend) {

@@ -1,4 +1,4 @@
-import { Formio } from 'formio-adports/formiojs';
+import { Formio } from 'formio-custom/formiojs';
 import CheckMatrix from './index';
 (Formio as any).use(CheckMatrix);
 export default CheckMatrix;

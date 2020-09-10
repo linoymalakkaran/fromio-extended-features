@@ -1,5 +1,5 @@
 import {  NgModule } from '@angular/core';
-import { FormioModule } from 'angular-formio-adports/angular-formio';
+import { FormioModule } from 'angular-formio-custom/angular-formio';
 import { FormsModule } from '@angular/forms';
 
 import {
